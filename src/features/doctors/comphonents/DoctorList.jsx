@@ -2,8 +2,7 @@ import React from "react";
 import "./DoctorLish.css"; // Assuming you have a CSS file for styling
 import { useGetDoctorQuery } from "../doctorApi";
 import AvailabilityComphonent from "./doctorList/AvailabilityComphonent";
-import ActiveComphonent from "./doctorList/activeComphonent";
-import PageHeader from "./doctorList/PageHeader";
+import ActiveComphonent from "./doctorList/ActiveComphonent";
 import Pagination from "../../../Comphonents/Pagination";
 
 const DoctorList = () => {
