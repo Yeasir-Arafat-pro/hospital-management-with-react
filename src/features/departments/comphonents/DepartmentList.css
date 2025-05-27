@@ -1,0 +1,47 @@
+.data-table th:nth-child(2),
+.data-table td:nth-child(2) {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+}
+.status-badge.active {
+  background: var(--secondary);
+}
+.status-badge.inactive {
+  background: #6b7280;
+}
+
+/* Action buttons */
+.btn-outline {
+  background: none;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-right: 0.25rem;
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-outline.danger {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+.btn-outline.danger:hover {
+  background: #dc2626;
+  color: #fff;
+}

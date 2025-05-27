@@ -1,0 +1,126 @@
+/* Patient list styles */
+
+/* Page header with title and search */
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.page-header h1 {
+  font-size: 1.75rem;
+  color: var(--primary);
+}
+.nav-link {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1rem;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.search-bar input {
+  width: 200px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--muted);
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+.search-bar button {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--muted);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  background: var(--surface);
+  cursor: pointer;
+}
+.search-bar button:hover {
+  background: var(--bg);
+}
+
+/* Table container */
+.table-container {
+  overflow-x: auto;
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px var(--shadow);
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.data-table th,
+.data-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--bg);
+}
+.data-table th {
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 600;
+}
+.data-table tr:hover {
+  background: rgba(30, 58, 138, 0.05);
+}
+.btn-outline {
+  background: none;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-right: 0.25rem;
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-outline.danger {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+.btn-outline.danger:hover {
+  background: #dc2626;
+  color: #fff;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  gap: 1rem;
+}
+.page-btn {
+  background: var(--surface);
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: var(--text);
+}
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.page-btn:hover:not(:disabled) {
+  background: var(--bg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .data-table th, .data-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .search-bar input {
+    width: 140px;
+  }
+}

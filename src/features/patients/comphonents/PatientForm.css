@@ -1,0 +1,144 @@
+/* Patient Form Styles */
+
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px var(--shadow);
+}
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  font-size: 1.5rem;
+  text-align: center;
+}
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.form-row label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text);
+}
+.form-row input,
+.form-row select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  outline: none;
+  font-size: 1rem;
+}
+.form-row input:focus,
+.form-row select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.2);
+}
+.fieldset {
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.fieldset legend {
+  padding: 0 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+.checkbox-row {
+  flex-direction: row;
+  align-items: center;
+}
+.checkbox-row input {
+  margin-right: 0.5rem;
+  width: auto;
+}
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: #1b327a;
+}
+.btn-outline {
+  background: none;
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  color: var(--text);
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background: var(--bg);
+}
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1rem;
+  }
+  .form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+}
+
+/* Grid layout for form */
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem 1.5rem;
+}
+.grid-fieldset {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.form-container {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px var(--shadow);
+}
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+/* override single-row fields within grid */
+.checkbox-row {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+}
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+@media (max-width: 600px) {
+  .grid-form {
+    grid-template-columns: 1fr;
+  }
+  .grid-fieldset {
+    grid-template-columns: 1fr;
+  }
+}
+

@@ -1,0 +1,134 @@
+/* Appointment Scheduler Styles */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.page-header h1 {
+  font-size: 1.75rem;
+  color: var(--primary);
+}
+.search-bar {
+  display: flex;
+}
+.search-bar input {
+  padding: 0.5rem;
+  border: 1px solid var(--muted);
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+.search-bar button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--muted);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  background: var(--surface);
+  cursor: pointer;
+}
+
+/* Scheduler container */
+.scheduler-container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 768px) {
+  .scheduler-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Calendar panel */
+.calendar-panel {
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px var(--shadow);
+}
+.date-picker {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.time-slots {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+.slot-btn {
+  padding: 0.5rem;
+  border: 1px solid var(--secondary);
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+.slot-btn:hover,
+.slot-btn.active {
+  background: var(--secondary);
+  color: #fff;
+}
+
+/* Scheduler form */
+.scheduler-form {
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px var(--shadow);
+}
+.scheduler-form h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+  text-align: center;
+}
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem 1.5rem;
+}
+.form-row label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.form-row input,
+.form-row select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  outline: none;
+}
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.btn-primary {
+  background: var(--secondary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: #0f9a6a;
+}
+.btn-outline {
+  background: none;
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background: var(--bg);
+}

@@ -1,0 +1,139 @@
+/* styles.css */
+
+/* Root & Body */
+:root {
+  --primary: #1e3a8a;
+  --secondary: #10b981;
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body, html {
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: var(--text);
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  height: 60px;
+  background: var(--surface);
+  box-shadow: 0 1px 4px var(--shadow);
+}
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+.top-nav {
+  display: flex;
+  align-items: center;
+}
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  color: var(--muted);
+}
+.nav-btn:hover {
+  color: var(--text);
+}
+.profile {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.username {
+  font-size: 0.9rem;
+}
+
+/* Container */
+.app-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .app-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sidebar */
+.app-sidebar {
+  background: var(--surface);
+  padding: 1rem;
+  box-shadow: 1px 0 4px var(--shadow);
+  overflow-y: auto;
+}
+.sidebar-nav {
+  list-style: none;
+}
+.sidebar-nav li + li {
+  margin-top: 1rem;
+}
+.sidebar-nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1rem;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.sidebar-nav a:hover {
+  background: var(--bg);
+}
+
+/* Main Content */
+#main-content {
+  padding: 1.5rem;
+  overflow-y: auto;
+  background: var(--bg);
+}
+
+/* Footer */
+.app-footer {
+  height: 40px;
+  background: var(--surface);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  box-shadow: 0 -1px 4px var(--shadow);
+}
+.app-footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.app-footer a:hover {
+  text-decoration: underline;
+}

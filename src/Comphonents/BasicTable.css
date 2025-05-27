@@ -1,0 +1,175 @@
+/* Users Table Styles */
+
+/* Page header reused from previous */
+.error{
+
+  color: red;
+
+}
+.page-header h1 {
+  font-size: 1.75rem;
+  color: var(--primary);
+}
+.search-bar input {
+  width: 220px;
+}
+
+/* Table container */
+.table-container {
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px var(--shadow);
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+/* Data table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.data-table th,
+.data-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--bg);
+}
+.data-table thead th {
+  background: var(--bg);
+  font-weight: 600;
+  color: var(--text);
+}
+.data-table tbody tr:hover {
+  background: rgba(16, 185, 129, 0.05);
+}
+
+/* Column widths */
+.data-table th:nth-child(1),
+.data-table td:nth-child(1) {
+  width: 40px;
+}
+.data-table th:nth-child(7),
+.data-table td:nth-child(7) {
+  white-space: nowrap;
+}
+
+/* Status badge */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+}
+.status-badge.active   { background: var(--secondary); }
+.status-badge.inactive { background: var(--muted); }
+
+/* Action buttons */
+.btn-outline {
+  background: none;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-right: 0.25rem;
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-outline.danger {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+.btn-outline.danger:hover {
+  background: #dc2626;
+  color: #fff;
+}
+
+/* Pagination reused from previous */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.page-btn {
+  background: var(--surface);
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: var(--text);
+}
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.page-btn:hover:not(:disabled) {
+  background: var(--bg);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .data-table th, .data-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .search-bar input {
+    width: 140px;
+  }
+}
+
+
+/* Expanded row container */
+.expanded-row td {
+  padding: 0;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Inner card */
+.expanded-content {
+  padding: 16px;
+  margin: 8px 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Header */
+.expanded-content .patient-detail h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Grid layout for details */
+.expanded-content .detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px 24px;
+}
+
+/* Full-width entries span both columns */
+.expanded-content .detail-grid .full-width {
+  grid-column: 1 / -1;
+}
+
+/* Individual detail styling */
+.expanded-content .detail-grid div {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.expanded-content .detail-grid strong {
+  color: #222;
+}
+

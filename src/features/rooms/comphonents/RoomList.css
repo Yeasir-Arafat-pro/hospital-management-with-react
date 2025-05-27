@@ -1,0 +1,60 @@
+/* Room List Styles */
+/* Reusing .page-header, .search-bar, .table-container, .data-table, .pagination */
+
+.data-table th:nth-child(4),
+.data-table td:nth-child(4),
+.data-table th:nth-child(5),
+.data-table td:nth-child(5),
+.data-table th:nth-child(6),
+.data-table td:nth-child(6) {
+  white-space: nowrap;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+}
+.status-badge.available { background: var(--secondary); }
+.status-badge.occupied  { background: #dc2626; }
+
+/* Action buttons */
+.btn-outline {
+  background: none;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-right: 0.25rem;
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-outline.danger {
+  border-color: #6b7280;
+  color: #6b7280;
+}
+.btn-outline.danger:hover {
+  background: #6b7280;
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .data-table th,
+  .data-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .search-bar input {
+    width: 150px;
+  }
+}

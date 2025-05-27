@@ -1,0 +1,88 @@
+/* Patient Details Page Styles */
+
+.details-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.details-container h1 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.details-card {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 1px 6px var(--shadow);
+}
+.card-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.card-group {
+  flex: 1;
+}
+.card-group h3 {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+.card-group p {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.fieldset {
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.fieldset legend {
+  font-weight: 600;
+  color: var(--primary);
+}
+.fieldset p,
+.fieldset .card-group {
+  margin: 0.5rem 0;
+}
+
+.actions-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.btn-outline {
+  background: none;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+.btn-secondary {
+  background: var(--secondary);
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  color: #fff;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background: var(--bg);
+}
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .card-row {
+    flex-direction: column;
+  }
+}

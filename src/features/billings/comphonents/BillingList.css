@@ -1,0 +1,104 @@
+/* Billing Table Styles */
+
+/* Reuse .page-header, .search-bar, .table-container from previous */
+
+/* Table formatting */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.data-table th,
+.data-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--bg);
+}
+.data-table thead th {
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+}
+.data-table tr:hover {
+  background: rgba(16, 185, 129, 0.05);
+}
+
+/* Currency columns */
+.data-table td:nth-child(4),
+.data-table td:nth-child(5),
+.data-table td:nth-child(6),
+.data-table td:nth-child(7) {
+  white-space: nowrap;
+}
+
+/* Status badge */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+}
+.status-badge.paid      { background: var(--secondary); }
+.status-badge.pending   { background: #f59e0b; }
+.status-badge.cancelled { background: #dc2626; }
+
+/* Action buttons */
+.btn-outline {
+  background: none;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-right: 0.25rem;
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-outline.danger {
+  border-color: #6b7280;
+  color: #6b7280;
+}
+.btn-outline.danger:hover {
+  background: #6b7280;
+  color: #fff;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  gap: 1rem;
+}
+.page-btn {
+  background: var(--surface);
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: var(--text);
+}
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.page-btn:hover:not(:disabled) {
+  background: var(--bg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .data-table th, .data-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .search-bar input {
+    width: 150px;
+  }
+}

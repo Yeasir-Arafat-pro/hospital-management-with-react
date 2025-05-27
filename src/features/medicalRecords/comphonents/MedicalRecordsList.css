@@ -1,0 +1,43 @@
+/* Medical Record List Styles */
+/* Reuse .page-header, .search-bar, .table-container, .data-table, .pagination */
+
+/* Column widths & wrapping */
+.data-table th:nth-child(1),
+.data-table td:nth-child(1) {
+  white-space: nowrap;
+}
+.data-table th:nth-child(4),
+.data-table td:nth-child(4) {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Follow‑Up date styling */
+.data-table td:nth-child(5) {
+  white-space: nowrap;
+}
+
+/* Action buttons same as previous */
+.btn-outline {
+  background: none;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-right: 0.25rem;
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-outline.danger {
+  border-color: #f59e0b;
+  color: #f59e0b;
+}
+.btn-outline.danger:hover {
+  background: #f59e0b;
+  color: #fff;
+}
