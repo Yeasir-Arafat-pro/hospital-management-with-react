@@ -17,7 +17,7 @@ import RoomList from './features/rooms/comphonents/RoomList';
 import BillingList from './features/billings/comphonents/BillingList';
 import BillingForm from './features/billings/comphonents/BillingForm';
 import PatientDetail from './features/patients/comphonents/PatientDetail';
-import UsersTable from './features/auth/comphonents/usersTable';
+import UsersTable from './features/auth/comphonents/UsersTable';
 import RoomUpdate from './features/rooms/comphonents/RoomUpdate';
 import RoomDetail from './features/rooms/comphonents/RoomDetail';
 import FormikContainer from './Comphonents/Formik/FormikContainer';
