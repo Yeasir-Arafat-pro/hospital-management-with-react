@@ -20,12 +20,11 @@ const DepartmentForm = () => {
     description: Yup.string().required("Description is required"),
   });
 
-  const onSubmit = async (val) => {
+  const onSubmit = async (val, submitProps) => {
     console.log('dep');
 
   await  addDepartment(val)
-    console.log(val);
-    //submitProps.setSubmitting(false)
+    submitProps.setSubmitting(false)
   };
     console.log('render');
 

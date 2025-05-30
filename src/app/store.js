@@ -1,13 +1,29 @@
+import {
+  configureStore
+} from '@reduxjs/toolkit';
 
-import { configureStore } from '@reduxjs/toolkit';
-
-import  { patientsApi } from '../features/patients/patientsApi';
-import { setupListeners } from '@reduxjs/toolkit/query';
-import { doctorApi } from '../features/doctors/doctorApi';
-import { userApi } from '../features/auth/usersApi';
-import { departmentApi } from '../features/departments/departmentApi';
-import { roomApi } from '../features/rooms/roomApi';
-import { appointmentApi } from '../features/appointments/appointmentApi';
+import {
+  patientsApi
+} from '../features/patients/patientsApi';
+import {
+  setupListeners
+} from '@reduxjs/toolkit/query';
+import {
+  doctorApi
+} from '../features/doctors/doctorApi';
+import {
+  userApi
+} from '../features/auth/usersApi';
+import {
+  departmentApi
+} from '../features/departments/departmentApi';
+import {
+  roomApi
+} from '../features/rooms/roomApi';
+import {
+  appointmentApi
+} from '../features/appointments/appointmentApi';
+import { billingApi } from '../features/billings/billingApi';
 
 
 
@@ -20,11 +36,21 @@ export const store = configureStore({
     [departmentApi.reducerPath]: departmentApi.reducer,
     [roomApi.reducerPath]: roomApi.reducer,
     [appointmentApi.reducerPath]: appointmentApi.reducer,
+    [billingApi.reducerPath]: billingApi.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(patientsApi.middleware, doctorApi.middleware, userApi.middleware, departmentApi.middleware, roomApi.middleware, appointmentApi.middleware),
+    getDefaultMiddleware().concat(
+      
+      patientsApi.middleware, 
+      doctorApi.middleware, 
+      userApi.middleware, 
+      departmentApi.middleware, 
+      roomApi.middleware, 
+      appointmentApi.middleware,
+      billingApi.middleware,
+    ),
 })
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors

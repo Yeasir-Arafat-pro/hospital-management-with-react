@@ -8,7 +8,7 @@ export const appointmentApi = createApi({
     endpoints: (builder)=> ({
         getAppointment: builder.query({
             // query: ({search, page, limit, sortBy, sortOrder}) => `appointment?search=${search}&page=${page}&limit=${limit}&sortBy=${sortBy}&sortOrder=${sortOrder}`,
-            query: () => 'appointment',
+            query: (search = '') => `appointment?patientId=${search}`,
             providesTags: (result) => {
                 const list = result?.appointments || [];
                 return [
