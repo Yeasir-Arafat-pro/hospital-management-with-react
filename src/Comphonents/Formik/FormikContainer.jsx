@@ -28,7 +28,6 @@ const FormikContainer = () => {
 
   const onSubmit = (val, submitProps) => {
     
-    console.log(val);
     submitProps.setSubmitting(false)
   };
 
@@ -42,7 +41,7 @@ const FormikContainer = () => {
           onSubmit={onSubmit}
         >
           {(formik) => {
-            console.log('formik ',formik);
+
             const {isValid, isSubmitting, dirty} = formik
             return (
               <Form id="department-form" className="grid-form">

@@ -1,65 +1,120 @@
-import React from "react";
-import "./DoctorLish.css"; // Assuming you have a CSS file for styling
-import { useGetDoctorQuery } from "../doctorApi";
-import AvailabilityComphonent from "./doctorList/AvailabilityComphonent";
-import ActiveComphonent from "./doctorList/ActiveComphonent";
-import Pagination from "../../../Comphonents/Pagination";
+import React, { useMemo, useState } from "react";
+import "./DoctorLish.css";
+import { useGetDoctorQuery, useUpdateDoctorMutation } from "../doctorApi";
+import BasicTable from "../../../Comphonents/BasicTable";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const DoctorList = () => {
+  const navigate = useNavigate()
+  const { data: doctors, isLoading, error } = useGetDoctorQuery();
+  const [updateDoctor] = useUpdateDoctorMutation();
 
-  
-  const {
-    data: doctors,
-    isLoading,
-    error,
-  } = useGetDoctorQuery();
-  console.log(doctors);
+  const doctorsData = useMemo(() => doctors?.payload?.doctors ?? [], [doctors]);
+
+  const handleDeactive = (id) => {
+    updateDoctor({
+      id: id,
+      isActive: false,
+    });
+  };
+  const handleActive = (id) => {
+    updateDoctor({
+      id: id,
+      isActive: true,
+    });
+  };
+
+  /** @type import('@tanstack/react-table').columnDef<any> */
+  const columns = [
+    {
+      header: "Name",
+      accessorKey: "name",
+    },
+    {
+      header: "Specialty",
+      accessorKey: "specialty",
+    },
+    {
+      header: "Department",
+      accessorKey: "department.name",
+    },
+    {
+      header: "Availability",
+      accessorFn: (row) => row?.readableAvailability,
+    },
+    {
+      header: "Status",
+      accessorFn: (row) => (
+        <span className={`status-badge ${row.isActive ? "active" : "inactive" }`}>
+          {" "}
+          {row.isActive ? "ACTIVE" : "INACTIVE"}{" "}
+        </span>
+      ),
+      // row.isActive ? (
+      //   <span className={`status-badge active`}>Active</span>
+      // ) : (
+      //   <span className={`status-badge inactive`}>Inactive</span>
+      // ),
+      cell: (info) => info.getValue(),
+    },
+    {
+      header: "Actions",
+      accessorFn: (row) => (
+        <>
+          <button className="btn-outline" onClick={()=> navigate(`/doctors/${row._id}`)}>View</button>
+          {row.isActive === true ? (
+            <button
+              className="btn-outline danger"
+              type="button"
+              onClick={() => handleDeactive(row._id)}
+            >
+              Deactivate
+            </button>
+          ) : (
+            <button
+              className="btn-outline danger"
+              type="button"
+              onClick={() => handleActive(row._id)}
+            >
+              Active
+            </button>
+          )}
+        </>
+      ),
+
+      cell: (info) => info.getValue(),
+    },
+  ];
+
+  const [filtering, setFiltering] = useState([]);
 
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error loading doctors</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <>
-      <section className="table-container">
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Specialty</th>
-              <th>Department</th>
-              <th>Availability</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {doctors?.payload?.doctors?.map((doctor) => {
-              const {
-                _id,
-                name,
-                specialty,
-                department,
-                availability,
-                isActive,
-              } = doctor;
-              return (
-                <tr key={_id}>
-                  <td>{name}</td>
-                  <td>{specialty}</td>
-                  <td>{department.name}</td>
-                  <AvailabilityComphonent availability={availability} />
-                  <ActiveComphonent isActive={isActive} />
-                  <td>
-                    <button className="btn-outline">View</button>
-                    <button className="btn-outline danger">Deactivate</button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-        <Pagination />
+      <section className="page-header">
+        <button className="btn">
+          <NavLink to="/doctors/create" className="nav-link">
+            Add Doctors
+          </NavLink>
+        </button>
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search Patients..."
+            id="user-search"
+            onChange={(e) => setFiltering(e.target.value)}
+          />
+          <button id="search-user-btn">🔍</button>
+        </div>
       </section>
+      <BasicTable
+        data={doctorsData}
+        columns={columns}
+        filtering={filtering}
+        setFiltering={setFiltering}
+      />
     </>
   );
 };

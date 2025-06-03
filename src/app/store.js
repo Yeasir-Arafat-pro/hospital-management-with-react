@@ -51,6 +51,7 @@ export const store = configureStore({
       appointmentApi.middleware,
       billingApi.middleware,
     ),
+    devTools: true
 })
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors

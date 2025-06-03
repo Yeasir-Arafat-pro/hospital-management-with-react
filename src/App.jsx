@@ -22,6 +22,8 @@ import RoomUpdate from './features/rooms/comphonents/RoomUpdate';
 import RoomDetail from './features/rooms/comphonents/RoomDetail';
 import FormikContainer from './Comphonents/Formik/FormikContainer';
 import Login from './features/auth/comphonents/Login';
+import DoctorDetail from './features/doctors/comphonents/doctorDetail';
+import Home from './pages/Home';
 
 const App = () => {
    const router = createBrowserRouter([
@@ -33,19 +35,22 @@ const App = () => {
           path: '/',
           element: <MainLayout />,
           children: [
+            {path: '/', element: <Home />},
             {path: '/form-test', element: <FormikContainer />},
             {path: '/users', element: <UsersTable />},
             {path: '/login', element: <Login />},
             {path: '/patients/create', element: <PatientForm />},
-            {path: '/patients/:id', element: <PatientForm />},
+            {path: '/patients/edit/:id', element: <PatientForm />},
             {path: '/patients/details/:id', element: <PatientDetail />},
             {path: '/patients', element: <PatientList />},
+            {path: '/doctors/:id', element: <DoctorDetail />},
             {path: '/doctors', element: <DoctorList />},
             {path: '/doctors/create', element: <DoctorForm />},
             {path: '/appointments', element: <AppointmentList />},
             {path: '/departments', element: <DepartmentList />},
             {path: '/departments/create', element: <DepartmentForm />},
             {path: '/billing', element: <BillingList />},
+            {path: '/billing/edit/:id', element: <BillingForm />},
             {path: '/billing/create', element: <BillingForm />},
             {path: '/medicalRecords', element: <MedicalRecordsList />},
             {path: '/medicalRecords/create', element: <MedicalRecordForm />},

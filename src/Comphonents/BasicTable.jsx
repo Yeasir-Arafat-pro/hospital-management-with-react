@@ -16,7 +16,6 @@ import ExpendedTr from "./ExpendedTr";
 
 const BasicTable = ({ data, columns, filtering, setFiltering }) => {
   const [expanded, setExpanded] = useState({});
-  console.log(expanded);
   const [sorting, setSorting] = useState([]);
   const table = useReactTable({
     data,

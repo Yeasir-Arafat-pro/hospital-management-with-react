@@ -7,7 +7,8 @@ import "./BillingForm.css";
 import FormikControl from "../../../Comphonents/Formik/FormikControl";
 import { useGetPatientQuery } from "../../patients/patientsApi";
 import { useGetAppointmentQuery } from "../../appointments/appointmentApi";
-import { useAddBillingMutation } from "../billingApi";
+import { useAddBillingMutation, useGetBillingByIdQuery, useUpdateBillingByIdMutation } from "../billingApi";
+import { useParams } from "react-router-dom";
 
 const PatientObserver = ({ onChange }) => {
   const { values } = useFormikContext();
@@ -19,7 +20,14 @@ const PatientObserver = ({ onChange }) => {
 
 const BillingForm = () => {
   const [addBilling] =useAddBillingMutation()
+  const [updateBillingById] = useUpdateBillingByIdMutation()
   const [patientId, setPatientId] = React.useState("");
+
+  const {id} = useParams()
+
+  const {data: bill, isLoading: load} = useGetBillingByIdQuery(id, {
+    skip: !id
+  })
   
   const initialValues = {
     invoiceNo: "",
@@ -40,12 +48,12 @@ const BillingForm = () => {
   });
 
   const onSubmit = async (values) => {
-    console.log("Form submitted with values:", values);
+    if (id) {
+      await updateBillingById({id:id, data: values})
+    }else {
+       const result = await addBilling(values)
+    }
 
-   const result = await addBilling(values)
-   console.log(result);
-   
-    
     // Here you would typically dispatch an action to save the billing data
     // For example: await addBilling(values);
   };
@@ -83,12 +91,29 @@ const BillingForm = () => {
     { key: "Cancelled", value: "cancelled" },
   ];
 
+  if (load) return <div>Loading...</div>
+  
+  const billData = bill?.payload?.bill
+  
+  console.log('bill',bill);
+  
+  const editInitialValues = {
+    invoiceNo: billData?.invoiceNo,
+    patient: billData?.patient?._id,
+    appointment: billData?.appointment?.datetime,
+    lineItems: [{ description: billData?.lineItems[0].description , amount: billData?.lineItems[0].amount, quantity: billData?.lineItems[0].quantity}],
+    taxPercent: billData?.taxPercent,
+    discountAmount: billData?.discountAmount,
+    paymentMethod: billData?.paymentMethod,
+    status: billData?.status,
+  }
+
   return (
     <>
       <section className="form-container">
         <h2>Billing Form</h2>
         <Formik
-          initialValues={initialValues}
+          initialValues={ editInitialValues ||initialValues}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >

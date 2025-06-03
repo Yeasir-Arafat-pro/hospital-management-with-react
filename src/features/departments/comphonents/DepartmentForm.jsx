@@ -21,12 +21,10 @@ const DepartmentForm = () => {
   });
 
   const onSubmit = async (val, submitProps) => {
-    console.log('dep');
 
   await  addDepartment(val)
     submitProps.setSubmitting(false)
   };
-    console.log('render');
 
   return (
     <>

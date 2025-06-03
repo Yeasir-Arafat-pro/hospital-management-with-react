@@ -10,7 +10,6 @@ import { useGetDoctorQuery } from "../../doctors/doctorApi";
 const AppointmentList = () => {
   const [timeSlot, setTimeSlot] = useState('')
   const [dateTime, setDateTime] = useState(new Date());
-  console.log(dateTime);
   
   const formatedDate = format(new Date(dateTime), "yyyy-MM-dd");
 
@@ -36,11 +35,6 @@ const AppointmentList = () => {
   }
 
 
-  // console.log(patients);
-  // console.log("doctors", doctors);
-
-  // console.log(slots);
-
   const initialValues = {
     patient: "",
     doctor: "",
@@ -49,13 +43,11 @@ const AppointmentList = () => {
   };
 
   const onSubmit = (values) => {
-    console.log(values);
     const appointment = {
       patient: values.patient,
       doctor: values.doctor,
       datetime: values.datetime && values.time ? `${values.datetime}T${values.time}:00.000Z` : `${formatedDate}T${timeSlot}:00.000Z`
     }
-    console.log(appointment);
     
     addAppointment(appointment)
   }

@@ -22,7 +22,6 @@ const Login = () => {
 
 
   const onSubmit = async (val, submitProps) => {
-    console.log(val);
     
     await loginUser(val)
     submitProps.setSubmitting(false)

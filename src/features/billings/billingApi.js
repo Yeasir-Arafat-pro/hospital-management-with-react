@@ -46,7 +46,7 @@ export const billingApi = createApi({
          updateBillingById: builder.mutation({
             query: ({id, data}) => ({
 
-                url: `billing/${id}`,
+                url: `billing/edit/${id}`,
                 method: 'PUT',
                 body: data
              
