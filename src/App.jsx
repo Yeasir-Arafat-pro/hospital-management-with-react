@@ -22,7 +22,7 @@ import RoomUpdate from './features/rooms/comphonents/RoomUpdate';
 import RoomDetail from './features/rooms/comphonents/RoomDetail';
 import FormikContainer from './Comphonents/Formik/FormikContainer';
 import Login from './features/auth/comphonents/Login';
-import DoctorDetail from './features/doctors/comphonents/doctorDetail';
+import DoctorDetail from './features/doctors/comphonents/DoctorDetail';
 import Home from './pages/Home';
 
 const App = () => {

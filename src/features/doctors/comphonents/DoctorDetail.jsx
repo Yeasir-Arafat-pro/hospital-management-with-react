@@ -1,6 +1,6 @@
 import React from 'react'
 import './doctorDetail.css'
-import { useNavigate, useParams } from 'react-router-dom'
+import {  useParams } from 'react-router-dom'
 import { useGetDoctorByIdQuery } from '../doctorApi'
 
 
